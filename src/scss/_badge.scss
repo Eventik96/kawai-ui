@@ -1,0 +1,75 @@
+.badge {
+    padding: 0.3em .8em !important;
+    border-radius: 50px !important;
+    font-size: 85% !important;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, Arimo, sans-serif !important;
+    border: none;
+    width: fit-content;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.badge-blue {
+    @extend .badge;
+    color: white;
+    background: #0062ff !important;
+}
+.badge-green {
+    @extend .badge;
+    color: white !important;
+    background: #00ddad !important;
+}
+.badge-yellow {
+    @extend .badge;
+    color: #000 !important;
+    background: #ffe70d !important;
+}
+.badge-orange {
+    @extend .badge;
+    color: #fff !important;
+    background: #ffbc09 !important;
+}
+.badge-outline {
+    @extend .badge;
+    color: #0062ff !important;
+    background: var(--chip-bg) !important;
+}
+.badge-chip {
+    @extend .badge;
+    color: var(--primary-text) !important;
+    background: var(--chip-bg) !important;
+}
+.badge-danger {
+    @extend .badge;
+    color: white !important;
+    background: #fd1290 !important;
+}
+
+.badge-bordered {
+    @extend .badge;
+    color: #0062ff !important;
+    border: 2px solid #0062ff !important;
+    background: var(--chip-bg) !important;
+}
+
+.badge-grey {
+    @extend .badge;
+    color: var(--hover-dark) !important;
+    background: #eeeeee !important;
+    border: 1px solid #eeeeee;
+    font-weight: 600 !important;
+    font-size: 80% !important;
+}
+
+.badge-purple {
+    @extend .badge;
+    color: white !important;
+    background: #6f00dd !important;
+}
+
+.badge-complementary {
+    @extend .badge;
+    color: white !important;
+    background: var(--color-primary-complementary) !important;
+}

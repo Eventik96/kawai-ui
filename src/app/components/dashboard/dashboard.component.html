@@ -1,0 +1,50 @@
+<aside [ngClass]="{'on-mobile-opened' : isMenuOpened, 'on-desktop-minimized': isMenuMinimized}">
+    <div class="d-flex flex-row align-center">
+        <span class="brand-name"><a class="no-a" href="/">KawAI</a></span>
+        <div class="minimizer-btn" (click)="isMenuMinimized = !isMenuMinimized; isMenuOpened = false;">
+            <i class="fa-solid fa-chevron-left"></i></div>
+    </div>
+    <ul>
+        <li *ngFor="let item of menuItems"
+            (click)="isMenuOpened = false;">
+            <div class="aside-main-item" [routerLink]="['/'+item.path]">
+                <div></div><span>{{item.name}}</span>
+            </div>
+            <div class="aside-sub-list" *ngIf="item.subItems">
+                <div class="aside-sub-list-padding">
+                    <div class="aside-sub-list-item" [routerLink]="['/'+item.path + '/' + sub.value]" *ngFor="let sub of item.subItems">
+                        <span>{{sub.label}}</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+
+    <ul class="mt-auto mb-0">
+        <li *ngIf="themeService.theme$ | async as theme" (click)="themeService.changeDarkMode()">
+            <div class="aside-main-item">
+                <div><i class="fa-solid fa-sun"></i></div>
+                <span *ngIf="theme === 'light'">Dark mode</span>
+                <span *ngIf="theme === 'dark'">Light mode</span>
+            </div>
+        </li>
+
+    </ul>
+
+</aside>
+
+<header>
+    <div class="ml-2" (click)="isMenuOpened = true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36" stroke="var(--secondary-text)">
+            <line x1="2" y1="14" x2="30" y2="14" stroke-width="3" stroke-linecap="round" />
+            <line x1="2" y1="21" x2="20" y2="21" stroke-width="3" stroke-linecap="round" />
+        </svg>
+    </div>
+
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>

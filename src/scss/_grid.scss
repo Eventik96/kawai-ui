@@ -1,0 +1,32 @@
+@use 'variables' as v;
+
+.d-grid {
+    display: grid !important;
+}
+
+.grid-gap-1 {
+    grid-gap: 1em;
+}
+
+.grid-gap-05 {
+    grid-gap: 0.5em;
+}
+
+.grid-col-3x1fr {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-1-1-fr {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-3-2-fr {
+    grid-template-columns: 3fr 2fr;
+}
+
+.on-mobile-1fr {
+    @media screen and (max-width: v.$tablet-width) {
+        grid-template-columns: 1fr !important;
+    }
+    
+}

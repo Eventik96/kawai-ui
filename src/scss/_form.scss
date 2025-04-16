@@ -1,0 +1,184 @@
+@use 'variables' as v;
+
+.inputfield {
+  background: var(--chip-bg);
+  border: 1px solid transparent;
+  border-radius: 1.1em;
+  padding: 0.2em 1em;
+  line-height: 1.9em;
+  color: var(--secondary-text);
+  font-size: 1em;
+  min-height: 38px;
+  // min-width: 11em;
+  &:focus,
+  &:active {
+    border: 1px solid var(--color-primary-light);
+    color: var(--primary-text);
+  }
+}
+
+input[type="date"]
+{
+    display:block;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+textarea.inputfield {
+  width: 100%;
+  min-height: 4em;
+}
+
+.details {
+  .row {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+  &-key {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  
+  &-val {
+    color: var(--secondary-text);
+    letter-spacing: -0.5px;
+    text-align: right;
+  }
+}
+
+
+
+
+form {
+  .form-section {
+    margin-bottom: 1.5em;
+
+    h5 {
+      margin-bottom: .75em;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.2em;
+
+    & > label:not(.tgl) {
+      margin-bottom: 0.3em;
+      display: block;
+      font-weight: 500;
+      font-size: .875em;
+      white-space: nowrap;
+    }
+
+    input:not([type=checkbox]) {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0;
+    }
+
+    input:not([type=checkbox]).invalid-field {
+      border: 1px solid rgb(255, 0, 106);
+    }
+  }
+
+
+  @media screen and (max-width:v.$desktop-width) {
+    .break-col-row-grid-under-1024 {
+      width: 100% !important;
+    }
+  }
+}
+
+.input-validation-error {
+  font-size: 0.75em;
+  margin-bottom: -0.31em;
+  margin-top: 2px;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+
+
+.searchfield {
+  position: relative;
+  width: auto;
+
+  // margin: -0.3em 0 0.4em 0;
+  // font-size: 1.1em;
+  & input {
+    width: 100%;
+  }
+
+  .search-icon {
+    position: absolute;
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 0.8em;
+    color: var(--color-primary-light);
+  }
+
+  .clear-icon {
+    visibility: hidden;
+    position: absolute;
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    top: 0;
+    right: 0.8em;
+    color: var(--hover-bg);
+    cursor: pointer;
+  }
+
+  .clear-icon.visible {
+    visibility: visible;
+  }
+}
+
+.icon-in-input {
+  position: relative;
+  width: auto;
+
+  // margin: -0.3em 0 0.4em 0;
+  // font-size: 1.1em;
+  & input {
+    width: 100%;
+  }
+
+  .search-icon {
+    position: absolute;
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 0.8em;
+    color: var(--color-primary-light);
+  }
+
+  .clear-icon, .eye-icon {
+    visibility: hidden;
+    position: absolute;
+    display: inline-flex;
+    height: 38px;
+    align-items: center;
+    top: 0;
+    right: 0.8em;
+    color: var(--hover-bg);
+    cursor: pointer;
+  }
+
+  .eye-icon {
+    font-size: 0.9em;
+  }
+
+  .clear-icon.visible, .eye-icon.visible {
+    visibility: visible;
+  }
+}
+
