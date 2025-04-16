@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs';
 import { Message } from 'src/app/models/message';
 import { AWSQService } from 'src/app/services/aws-q.service';
 
@@ -17,7 +18,7 @@ export class AiChatComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.q.webSocketMessages().subscribe(chunk => {
+    this.q.webSocketMessages().pipe(delay(100)).subscribe(chunk => {
       if(this.messages.at(-1).dir === 'in') {
         this.messages.at(-1).text += chunk;
       }

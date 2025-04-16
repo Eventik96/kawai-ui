@@ -8,5 +8,5 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent {
   constructor(public ts: ThemeService) {}
-  title = 'kawai-ui';
+  title = 'Saturn VI';
 }

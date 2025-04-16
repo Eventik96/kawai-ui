@@ -12,14 +12,16 @@ export class AWSQService {
       return new Observable<string>((observer) => {
         
         this.socket.onmessage = (event) => {
-          if(event.data?.login_url) {
-            window.open(event.data.login_url);
+          const data = JSON.parse(event.data);
+          console.log(data);
+          if(data?.login_url) {
+            //window.open(data.login_url);
           } else {
-            const arrayBuffer = event.data as ArrayBuffer;
-            const text = new TextDecoder('utf-8').decode(arrayBuffer);
-            observer.next(text);
+            if(data?.text) {
+              let text = data?.text.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '')
+              observer.next(text);
+            }
           }
-          
         };
     
         this.socket.onerror = (err) => {
