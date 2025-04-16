@@ -6,6 +6,9 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 100dvh;
+    &-header {
+        height: 2em;
+    }
     &-body {
         max-height: calc(100dvh - 10em);
         overflow: auto;
@@ -15,7 +18,6 @@
             display: flex;
             flex-direction: column;
             gap: 1em;
-            margin-top: 1em;
             .message {
                 margin: 0;
                 width: fit-content;
