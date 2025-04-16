@@ -20,6 +20,7 @@
             gap: 1em;
             .message {
                 margin: 0;
+                white-space: pre;
                 width: fit-content;
                 &.out {
                     border-radius: 1em;
