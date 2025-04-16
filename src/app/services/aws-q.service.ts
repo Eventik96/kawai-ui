@@ -15,7 +15,9 @@ export class AWSQService {
           if(event.data?.login_url) {
             window.open(event.data.login_url);
           } else {
-            observer.next(event.data?.text);
+            const arrayBuffer = event.data as ArrayBuffer;
+            const text = new TextDecoder('utf-8').decode(arrayBuffer);
+            observer.next(text);
           }
           
         };
